@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Search Page</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Predicting the women having an affair</h1>
+
+    <div class="form">
+
+        <form action="/predict" method="POST">
+            <p>Please select the wife's occupation. If no occupation is selected, occupation will be considered as Student</p>
+            <select name = 'Wife_Occupation' id = 'Wife_Occupation'>
+                <option></option>
+                <option value="occ2">farming/semi-skilled/unskilled</option>
+                <option value="occ3">white collar</option>
+                <option value="occ4">teacher/nurse/writer/technician/skilled</option>
+                <option value="occ5">managerial/business</option>
+                <option value="occ6">professional with advanced degree</option>
+            </select>
+            <br>
+            <p>Please select the husband's occupation. If no occupation is selected, occupation will be considered as Student</p>
+             <select name = 'Hus_Occupation' id = 'Hus_Occupation'>
+                <option></option>
+                <option value="hocc2">farming/semi-skilled/unskilled</option>
+                <option value="hocc3">white collar</option>
+                <option value="hocc4">teacher/nurse/writer/technician/skilled</option>
+                <option value="hocc5">managerial/business</option>
+                <option value="hocc6">professional with advanced degree</option>
+            </select>
+            <br>
+            <br>
+            <input type="number" name="rate_marriage" id="rate_marriage" placeholder="Marriage Rating [1-5]">
+            <input type="number" name="age" id="age" placeholder="Women's Age">
+            <input type="number" name="yrs_married" id="yrs_married" placeholder="Number of years of Marriage">
+            <input type="number" name="children" id="children" placeholder="Number of children">
+            <input type="number" name="religious" id="religious" placeholder="Women's rating of religious [1-4]">
+            <br>
+            <p>Please select the education level of women</p>
+             <select name = 'Wife_Education' id = 'Wife_Education'>
+                <option value="g_school">Grade School</option>
+                <option value="h_school">High School</option>
+                <option value="s_college">Some College</option>
+                <option value="col_graduate">College Graduate</option>
+                <option value="some_col_graduate">Some College Graduate</option>
+                 <option value="adv_degree">Advanced Degree</option>
+            </select>
+            <br><br>
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+</div>
+{% endblock %}
